@@ -7,7 +7,7 @@
 
 .about-container {
     display: flex;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
     position: relative;
@@ -18,13 +18,12 @@
     width: 320px;
     flex-shrink: 0;
     position: fixed;
-    top: 100px;
+    top: 52%; /* Center vertically */
     left: 10%;
-    height: calc(100vh - 120px);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-light) transparent;
+    transform: translateY(-50%); /* Center vertically */
+    max-height: 80vh; /* Limit max height to prevent overflow */
     z-index: 10;
+    overflow: visible; /* Remove scrolling */
 }
 
 .about-sidebar::-webkit-scrollbar {
@@ -51,6 +50,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-height: 100vh; /* Set max height to prevent overflow */
 }
 
 .profile-image {
@@ -74,16 +74,16 @@
 }
 
 .profile-name {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 5px;
     color: var(--text-color);
 }
 
 .profile-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--primary-light);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* Profile stats styles */
@@ -91,8 +91,8 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-bottom: 25px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: 1px solid var(--card-border);
 }
 
@@ -103,36 +103,37 @@
 }
 
 .stat-value {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--primary-color);
 }
 
 .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-light);
 }
 
 .contact-badges {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .contact-badge {
     background-color: rgba(255, 255, 255, 0.08);
     border-radius: 30px;
-    padding: 8px 15px;
+    padding: 6px 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     transition: all 0.3s ease;
     color: var(--text-color);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
+
 
 .contact-badge:hover {
     background-color: var(--primary-color);
@@ -838,12 +839,14 @@
         margin-bottom: 40px;
         top: 0;
         left: 0;
-        overflow-y: visible;
+        transform: none;
+        max-height: none;
     }
-    
+      
     .profile-container {
         max-width: 600px;
         margin: 0 auto;
+        max-height: none;
     }
     
     .about-main {
@@ -917,8 +920,20 @@
 }
 
 @media (max-width: 480px) {
+
+.about-content{
+    padding-top: 0px;
+}
     .about-section {
         padding: 25px 15px;
+    }
+    .profile-stats {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+    .stat {
+        width: 45%;
     }
     
     .section-header h2 {

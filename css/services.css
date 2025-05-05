@@ -508,7 +508,7 @@
 
 @media (max-width: 480px) {
     .services-content {
-        padding: 80px 4% 30px;
+        padding: 0px 4% 30px;
     }
     
     .section-header h1 {
