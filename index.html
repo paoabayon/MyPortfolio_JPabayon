@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jann Paolo Abayon | Portfolio</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home" class="logo">{JP Abayon}</a>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active" data-page="home">Home</a>
+            <a href="#about" class="nav-link" data-page="about">About</a>
+            <a href="#services" class="nav-link" data-page="services">Services</a>
+            <a href="#projects" class="nav-link" data-page="projects">Projects</a>
+            <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+            <button id="darkModeToggle" class="dark-mode-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm <span class="highlight">JP Abayon</span></h1>
+            <div class="dynamic-text">
+                I'm <span id="role-text"></span>
+                <span class="cursor">|</span>
+            </div>
+            <p class="hero-description">
+                Turning ideas into reality through creative solutions
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="cta-btn">View My Work</a>
+                <a href="#contact" class="cta-btn cta-secondary">Contact Me</a>
+             <!--   <a href="./assets/Abayon-Jann-Paolo-Resume.pdf" target="_blank" download="Abayon-Jann-Paolo-Resume.pdf" class="cta-btn cta-secondary cta-download"> Download CV </a>
+           --> </div>
+        </div>
+        <img class="profilepicture" src="./assets/profilepicture.png" alt="Profile Picture">
+    </section>
+
+    <!-- Content container - loaded dynamically -->
+    <div id="content">
+        <!-- Content will be loaded here from external HTML files -->
+    </div>
+    <div class="social-container">
+        <a href="https://www.linkedin.com/in/jpabayon" class="social-icon" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/paoabayon" class="social-icon" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/jpaovisuals/" class="social-icon" target="_blank" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon" data-tooltip="Viber QR Code" id="viberQrLink">
+            <i class="fab fa-viber"></i>
+        </a>          
+    </div>
+
+    <!-- Simple Footer -->
+    <footer class="simple-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Jann Paolo Abayon. All rights reserved.</p>
+            <p>Designed and developed with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Scan QR Code to Connect on Viber</h2>
+            <img src="./assets/viberqrcode.jpg" alt="Viber QR Code" class="modal-qr-img">
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
