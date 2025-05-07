@@ -537,3 +537,15 @@
         </div>
     </div>
 </main>
+<script>
+    // Fade in content when loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const contentElement = document.querySelector('.about-content') ;
+        
+        if (contentElement) {
+            setTimeout(function() {
+                contentElement.style.opacity = '1';
+            }, 100);
+        }
+    });
+</script>

@@ -4,10 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jann Paolo Abayon | Portfolio</title>
+    
+    <!-- Critical CSS inline to prevent FOUC -->
+    <style>
+        /* Critical styles to prevent flash of unstyled content */
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #60a5fa;
+            --accent-color: #0ea5e9;
+            --text-color: #1e293b;
+            --bg-gradient-start: #f0f9ff; 
+            --bg-gradient-end: #bfdbfe; 
+            --card-bg: rgba(255, 255, 255, 0.25);
+            --card-border: rgba(148, 163, 184, 0.25);
+            --card-shadow: rgba(15, 23, 42, 0.08); 
+        }
+        
+        [data-theme="dark"] {
+            --text-color: #f8fafc;
+            --bg-gradient-start: #0f172a;
+            --bg-gradient-end: #1e3a8a;
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --card-border: rgba(71, 85, 105, 0.2);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(225deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.3s ease;
+        }
+        
+        body.loaded {
+            opacity: 1; /* Show when loaded */
+        }
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 1rem 10%;
+            background-color: var(--card-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+    
+    <!-- Load CSS properly -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -41,8 +93,7 @@
             <div class="cta-buttons">
                 <a href="#projects" class="cta-btn">View My Work</a>
                 <a href="#contact" class="cta-btn cta-secondary">Contact Me</a>
-             <!--   <a href="./assets/Abayon-Jann-Paolo-Resume.pdf" target="_blank" download="Abayon-Jann-Paolo-Resume.pdf" class="cta-btn cta-secondary cta-download"> Download CV </a>
-           --> </div>
+            </div>
         </div>
         <img class="profilepicture" src="./assets/profilepicture.png" alt="Profile Picture">
     </section>
@@ -77,6 +128,14 @@
         </div>
     </div>
 
+    <!-- Fix loading issue -->
+    <script>
+        // Show body when everything is loaded
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+    <script src="./js/fix-content-loading.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>

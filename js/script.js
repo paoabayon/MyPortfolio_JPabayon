@@ -1,3 +1,23 @@
+// Fix loading issue - add this at the top
+(function() {
+    // Handle initial page loading
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+    });
+    
+    // Preload content pages
+    if (window.innerWidth > 768) {
+        setTimeout(function() {
+            const pagesToPreload = ['about', 'services', 'projects', 'contact'];
+            pagesToPreload.forEach(function(page) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = `content/${page}.html`;
+                document.head.appendChild(link);
+            });
+        }, 2000);
+    }
+})();
 // Role animation
 const roles = [
     "a Web Developer",
